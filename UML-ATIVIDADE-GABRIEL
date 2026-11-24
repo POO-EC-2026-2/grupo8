@@ -1,0 +1,30 @@
+@startuml
+
+    actor Cliente
+    actor Garçom
+    actor Caixa
+    participant "Sistema de Pedidos" as Sistema
+    participant "Cozinha" as Cozinha
+    participant "Bar" as Bar
+
+'Processo de lançamento de pedido
+    Cliente -> Garçom: Fazer pedido
+    Garçom -> Sistema: Registrar pedido
+    Sistema -> Cozinha: Enviar pedido de comida
+    Sistema -> Bar: Enviar pedido de bebida
+    Cozinha --> Sistema: Confirmar pedido de comida
+    Bar --> Sistema: Confirmar pedido de bebida
+    Sistema --> Garçom: Notificar confirmação de pedido
+
+'Processo de pagamento de conta
+    Cliente -> Garçom: Solicitar conta
+    Garçom -> Caixa: Solicitar fechamento da conta
+    Caixa -> Sistema: Fechar conta
+    Caixa --> Garçom: Entregar conta fechada
+    Garçom --> Cliente: Entregar ao cliente
+    Cliente -> Garçom: Efetuar pagamento
+    Garçom -> Caixa: Registrar pagamento
+    Caixa -> Sistema: Confirmar pagamento
+    Sistema --> Caixa: Enviar aviso de confirmação de pagamento
+    
+@enduml
