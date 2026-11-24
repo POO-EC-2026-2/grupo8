@@ -1,5 +1,7 @@
 package com.poo;
 
+import com.poo.dao.AlimentoDao;
+import com.poo.dao.BebidaDao;
 import com.poo.modelos.*;
 
 import java.io.IOException;
@@ -13,6 +15,7 @@ public class Principal {
         Scanner leitor = new Scanner(System.in);
 
         ConexaoBanco.conectar();
+
         TableUtils.createTableIfNotExists(
                 ConexaoBanco.getConexao(),
                 Alimento.class
@@ -25,7 +28,7 @@ public class Principal {
 
 
         System.out.println("Atlas iniciado");
-        ConexaoBanco.fechar();
+
 
         Restaurante restaurante = new Restaurante();
         Mesa mesa1 = new Mesa(01);
@@ -35,13 +38,27 @@ public class Principal {
 
         System.out.println("Teste de push");
 
+        AlimentoDao alimentoDao = new AlimentoDao(
+                ConexaoBanco.getConexao()
+        );
+
+        BebidaDao bebidaDao = new BebidaDao(
+                ConexaoBanco.getConexao()
+        );
+
         Alimento hamburguer = new Alimento(
                 01, "Hambúrguer", "Hambúrguer", 30,
                 CategoriaAlimento.HAMBURGUER, 01
         );
+
+        alimentoDao.salvar(hamburguer);
         Bebida agua = new Bebida(
                 01, "Água", "Somente água", 5, CategoriaBebida.AGUA
         );
+
+        bebidaDao.salvar(agua);
+
+        System.out.println("Objetos salvos com sucesso");
 
         restaurante.obterCardapio().adicionarProduto(hamburguer);
         restaurante.obterCardapio().adicionarProduto(agua);
