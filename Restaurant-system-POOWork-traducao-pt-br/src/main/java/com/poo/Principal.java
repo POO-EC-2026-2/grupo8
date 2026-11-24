@@ -6,11 +6,12 @@ public class Principal {
         Scanner leitor = new Scanner(System.in);
 
         Restaurante restaurante = new Restaurante();
-
         Mesa mesa1 = new Mesa(01);
         Garcom garcom = new Garcom(02, "Gabriel");
         Mesa mesa2 = new Mesa(02);
         Garcom garcom2 = new Garcom(02, "Rafael");
+
+        System.out.println("Teste de push");
 
         Alimento hamburguer = new Alimento(
                 01, "Hambúrguer", "Hambúrguer", 30,
