@@ -1,9 +1,19 @@
+package com.poo;
+
 import com.poo.modelos.*;
+
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Scanner;
+import com.poo.database.ConexaoBanco;
 
 public class Principal {
-    public static void main(String[] argumentos) {
+    public static void main(String[] argumentos) throws SQLException, IOException {
         Scanner leitor = new Scanner(System.in);
+
+        ConexaoBanco.conectar();
+        System.out.println("Atlas iniciado");
+        ConexaoBanco.fechar();
 
         Restaurante restaurante = new Restaurante();
         Mesa mesa1 = new Mesa(01);
