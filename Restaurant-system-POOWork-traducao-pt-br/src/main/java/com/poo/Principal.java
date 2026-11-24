@@ -6,12 +6,24 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Scanner;
 import com.poo.database.ConexaoBanco;
+import com.j256.ormlite.table.TableUtils;
 
 public class Principal {
     public static void main(String[] argumentos) throws SQLException, IOException {
         Scanner leitor = new Scanner(System.in);
 
         ConexaoBanco.conectar();
+        TableUtils.createTableIfNotExists(
+                ConexaoBanco.getConexao(),
+                Alimento.class
+        );
+
+        TableUtils.createTableIfNotExists(
+                ConexaoBanco.getConexao(),
+                Bebida.class
+        );
+
+
         System.out.println("Atlas iniciado");
         ConexaoBanco.fechar();
 
