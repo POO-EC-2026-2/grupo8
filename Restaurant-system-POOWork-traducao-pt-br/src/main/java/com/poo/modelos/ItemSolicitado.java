@@ -11,6 +11,6 @@ public class ItemSolicitado {
     }
 
     public double calcularTotal() {
-        return produto.obterPreco() * quantidade;
+        return produto.getPreco() * quantidade;
     }
 }

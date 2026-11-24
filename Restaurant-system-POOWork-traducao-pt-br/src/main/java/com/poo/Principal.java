@@ -46,22 +46,15 @@ public class Principal {
                 ConexaoBanco.getConexao()
         );
 
-        Alimento hamburguer = new Alimento(
-                01, "Hambúrguer", "Hambúrguer", 30,
-                CategoriaAlimento.HAMBURGUER, 01
-        );
-
-        alimentoDao.salvar(hamburguer);
-        Bebida agua = new Bebida(
-                01, "Água", "Somente água", 5, CategoriaBebida.AGUA
-        );
-
-        bebidaDao.salvar(agua);
-
         System.out.println("Objetos salvos com sucesso");
 
-        restaurante.obterCardapio().adicionarProduto(hamburguer);
-        restaurante.obterCardapio().adicionarProduto(agua);
+        for (Alimento alimento : alimentoDao.listarTodos()) {
+            restaurante.obterCardapio().adicionarProduto(alimento);
+        }
+
+        for (Bebida bebida : bebidaDao.listarTodos()) {
+            restaurante.obterCardapio().adicionarProduto(bebida);
+        }
 
         int opcao;
 
@@ -91,6 +84,7 @@ public class Principal {
 
                 case 2:
                     restaurante.obterCardapio().exibirProdutos();
+                    break;
 
                 case 3:
                     restaurante.obterCardapio().exibirProdutos();

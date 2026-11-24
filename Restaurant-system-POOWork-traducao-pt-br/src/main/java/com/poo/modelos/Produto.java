@@ -24,19 +24,25 @@ public abstract class Produto {
         this.preco = preco;
     }
 
-    public int obterId() {
+    public int getId() {
         return id;
     }
 
-    public String obterNome() {
+    public String getNome() {
         return nome;
     }
 
-    public String obterDescricao() {
+    public String getDescricao() {
         return descricao;
     }
 
-    public double obterPreco() {
+    public double getPreco() {
         return preco;
     }
+
+    public void setPreco(double v) {
+        this.preco = v;
+    }
+
+
 }

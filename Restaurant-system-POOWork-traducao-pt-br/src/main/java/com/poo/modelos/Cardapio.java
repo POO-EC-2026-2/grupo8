@@ -20,7 +20,7 @@ public class Cardapio {
 
     public Produto buscarProduto(int id) {
         for (Produto produto : produtos) {
-            if (produto.obterId() == id) {
+            if (produto.getId() == id) {
                 return produto;
             }
         }
@@ -34,9 +34,9 @@ public class Cardapio {
     public void exibirProdutos() {
         for (Produto produto : produtos) {
             System.out.println(
-                    produto.obterId() + " - " +
-                            produto.obterNome() + " - R$ " +
-                            produto.obterPreco()
+                    produto.getId() + " - " +
+                            produto.getNome() + " - R$ " +
+                            produto.getPreco()
             );
         }
     }
