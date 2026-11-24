@@ -1,0 +1,87 @@
+@startuml
+ title ATLAS - Diagrama de Classes: Comanda e Pedido
+ left to right direction
+ skinparam classAttributeIconSize 0
+ hide empty members
+
+ package "br.ufg.atlas.modelo" {
+   class Mesa {
+     - numero: int
+     - comanda: Comanda
+     + abrirComanda(): Comanda
+     + getComandaAberta(): Comanda
+   }
+
+   class Comanda {
+     - mesa: Mesa
+     - pedidos: ArrayList<Pedido>
+     - estado: String
+     - pagamento: Pagamento
+     + incluirPedido(pedido: Pedido): void
+     + solicitarConta(): void
+     + calcularTotal(): long
+     + fecharConta(caixa: Funcionario, pagamento: Pagamento): void
+   }
+
+   class Pedido {
+     - responsavel: Funcionario
+     - itens: ArrayList<ItemPedido>
+     - comanda: Comanda
+     - estado: String
+     + calcularTotal(): long
+     + marcarPronto(gerente: Funcionario): void
+     + registrarEntrega(garcom: Funcionario): void
+   }
+
+   class ItemPedido {
+     - produto: Produto
+     - quantidade: int
+     - observacao: String
+     - precoCentavos: long
+     + calcularSubtotal(): long
+   }
+
+   class Produto {
+     - id: long
+     - nome: String
+     - categoria: String
+     - precoCentavos: long
+     - disponivel: boolean
+     + alterarPreco(precoCentavos: long): void
+     + definirDisponibilidade(disponivel: boolean): void
+   }
+
+   class Funcionario {
+     - codigo: String
+     - nome: String
+     - cargo: Cargo
+     - ativo: boolean
+     + podeAtender(): boolean
+     + podeAdministrar(): boolean
+     + podeReceber(): boolean
+   }
+
+   class Pagamento {
+     - valorCentavos: long
+     - forma: FormaPagamento
+     + getValorCentavos(): long
+   }
+ }
+
+ Mesa "1" -- "0..1" Comanda : comanda atual
+ Comanda "1" -- "0..*" Pedido : pedidos
+ Pedido "1" -- "1..100" ItemPedido : itens
+ ItemPedido "0..*" --> "1" Produto : produto
+ Pedido "0..*" --> "1" Funcionario : responsavel
+ Comanda "0..1" --> "0..1" Pagamento : pagamento
+
+ note bottom of Pedido
+   Um pedido é criado com 1 a 100 itens.
+   Apenas o garçom responsável registra a entrega.
+ end note
+
+ note bottom of Comanda
+   A comanda começa ABERTA, pode ter a conta solicitada
+   e é encerrada após um pagamento válido.
+ end note
+@enduml
