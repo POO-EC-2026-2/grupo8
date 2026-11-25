@@ -1,8 +1,16 @@
 package com.poo.modelos;
 
-public class Mesa {
+import com.j256.ormlite.field.DataType;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
 
+@DatabaseTable(tableName = "mesas")
+public class Mesa { 
+    
+    @DatabaseField(canBeNull = false, dataType = DataType.INTEGER)
     private int numero;
+    
+    @DatabaseField(canBeNull = false, dataType = DataType.ENUM_STRING)
     private StatusMesa status;
 
     public Mesa(int numero) {
