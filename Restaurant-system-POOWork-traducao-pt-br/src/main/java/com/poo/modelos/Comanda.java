@@ -13,22 +13,34 @@ public class Comanda {
 
     @DatabaseField(canBeNull = false, dataType = DataType.INTEGER)
     private int id;
-    
+
     @DatabaseField(foreign = true, foreignAutoRefresh = true, canBeNull = false)
     private Mesa mesa;
-    
+
     @DatabaseField(foreign = true, foreignAutoRefresh = true, canBeNull = false)
-    private Garcom garcom;
-    
+    private Funcionario funcionario;
+
     @DatabaseField(canBeNull = false, dataType = DataType.ENUM_STRING)
     private StatusComanda status;
-    
+
     private ArrayList<ItemSolicitado> itens;
 
-    public Comanda(Mesa mesa, Garcom garcom) {
+    public Comanda(Mesa mesa, Funcionario funcionario) {
+        if (mesa == null) {
+            throw new IllegalArgumentException("A mesa não pode ser nula.");
+        }
+        if (funcionario == null) {
+            throw new IllegalArgumentException("O funcionário responsável não pode ser nulo.");
+        }
+        NivelAcesso nivel = funcionario.obterNivel();
+        if (nivel == null || (nivel != NivelAcesso.NIVEL_2 && nivel != NivelAcesso.NIVEL_3
+                && nivel.ordinal() < NivelAcesso.NIVEL_2.ordinal())) {
+            throw new SecurityException("Apenas funcionários de NIVEL_2 ou superior podem abrir/assumir uma comanda.");
+        }
+
         this.id = proximoId++;
         this.mesa = mesa;
-        this.garcom = garcom;
+        this.funcionario = funcionario;
         this.itens = new ArrayList<>();
         this.status = StatusComanda.ABERTA;
     }
@@ -51,11 +63,15 @@ public class Comanda {
     }
 
     public void fechar() {
-        this.status = StatusComanda.FINALIZADA;
+        this.status = StatusComanda.FECHADA;
     }
 
     public Mesa obterMesa() {
         return mesa;
+    }
+
+    public Funcionario obterFuncionario() {
+        return funcionario;
     }
 
     public int obterId() {
