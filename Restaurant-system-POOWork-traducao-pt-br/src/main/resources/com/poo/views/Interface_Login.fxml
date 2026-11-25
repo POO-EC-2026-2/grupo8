@@ -9,13 +9,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #171717; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
    <top>
-      <VBox alignment="CENTER" prefHeight="79.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="79.0" prefWidth="600.0" style="-fx-background-radius: 10;" BorderPane.alignment="CENTER">
          <children>
-            <Label text="EMPÓRIO " />
-            <Label text="PIQUIRAS">
+            <Label style="-fx-font-weight: bold; -fx-text-fill: #F2F2F2;" text="SISTEMA" />
+            <Label style="-fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 30px;" text="ATLAS">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -24,16 +23,16 @@
       </VBox>
    </top>
    <center>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #292929; -fx-border-radius: 10;" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Login" />
-            <TextField alignment="TOP_LEFT" text="Insira seu e-mail...">
+            <Label style="-fx-text-fill: #F2F2F2; -fx-font-size: 15px;" text="Login" />
+            <TextField maxHeight="25.0" maxWidth="250.0" prefHeight="25.0" prefWidth="200.0" text="Insira seu e-mail...">
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>
             </TextField>
-            <Label text="Senha" />
-            <TextField text="Insira sua senha..." VBox.vgrow="ALWAYS">
+            <Label style="-fx-text-fill: #F2F2F2; -fx-font-size: 15px;" text="Senha" />
+            <TextField maxHeight="25.0" maxWidth="250.0" text="Insira sua senha..." VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>
@@ -42,10 +41,10 @@
       </VBox>
    </center>
    <bottom>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="110.0" prefWidth="611.0" spacing="50.0" style="-fx-background-color: #292929; -fx-border-radius: 10;" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Limpar" HBox.hgrow="ALWAYS" />
-            <Button mnemonicParsing="false" text="Confirmar" />
+            <Button mnemonicParsing="false" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="Limpar" HBox.hgrow="ALWAYS" />
+            <Button mnemonicParsing="false" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="Confirmar" />
          </children>
          <padding>
             <Insets top="10.0" />

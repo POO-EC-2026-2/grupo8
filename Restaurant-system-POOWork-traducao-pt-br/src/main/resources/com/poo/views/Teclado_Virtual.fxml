@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #171717; -fx-background-radius: 10; -fx-border-color: #454545;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <VBox prefHeight="133.0" prefWidth="582.0" spacing="8.0" BorderPane.alignment="CENTER">
          <padding>
             <Insets top="10.0" />
          </padding>
          <children>
-            <Label text="Texto digitado" />
+            <Label style="-fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="Texto digitado" />
             <TextField text="Digite aqui..." />
          </children>
       </VBox>
@@ -30,46 +30,46 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="Q" />
-                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="W" />
-                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="E" />
-                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="R" />
-                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="T" />
-                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="Y" />
-                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="U" />
-                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="I" />
-                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="O" />
-                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="P" />
+                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="Q" />
+                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="W" />
+                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="E" />
+                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="R" />
+                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="T" />
+                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="Y" />
+                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="U" />
+                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="I" />
+                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="O" />
+                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="P" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="A" />
-                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="S" />
-                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="D" />
-                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="F" />
-                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="G" />
-                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="H" />
-                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="J" />
-                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="K" />
-                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="L" />
-                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="Ç" />
+                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="A" />
+                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="S" />
+                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="D" />
+                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="F" />
+                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="G" />
+                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="H" />
+                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="J" />
+                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="K" />
+                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="L" />
+                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="Ç" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="Z" />
-                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="X" />
-                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="C" />
-                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="V" />
-                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="B" />
-                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="N" />
-                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="M" />
+                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="Z" />
+                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="X" />
+                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="C" />
+                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="V" />
+                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="B" />
+                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="N" />
+                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="M" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="480.0">
                      <children>
-                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="342.0" text="ESPAÇO">
+                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="342.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="ESPAÇO">
                            <HBox.margin>
                               <Insets left="10.0" />
                            </HBox.margin>
@@ -82,30 +82,30 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="8.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" text="1" />
-                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" text="2" />
-                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" text="3" />
+                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="1" />
+                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="2" />
+                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="3" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="8.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" text="4" />
-                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" text="5" />
-                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" text="6" />
+                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="4" />
+                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="5" />
+                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="6" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="8.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" text="7" />
-                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" text="8" />
-                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" text="9" />
+                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="7" />
+                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="8" />
+                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="9" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="8.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" text="0" />
-                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="85.0" text="⌫" />
-                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" text="C" />
+                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="0" />
+                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="85.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="⌫" />
+                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="C" />
                      </children>
                   </HBox>
                </children></VBox>
@@ -118,8 +118,8 @@
             <Insets top="10.0" />
          </padding>
          <children>
-            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="130.0" text="Cancelar" />
-            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="130.0" text="Confirmar" />
+            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="130.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="Cancelar" />
+            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="130.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="Confirmar" />
          </children>
       </HBox>
    </bottom>
