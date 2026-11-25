@@ -2,15 +2,28 @@ package com.poo.modelos;
 
 import java.util.ArrayList;
 
+import com.j256.ormlite.field.DataType;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
+@DatabaseTable(tableName = "comandas")
 public class Comanda {
 
     private static int proximoId = 1;
 
+    @DatabaseField(canBeNull = false, dataType = DataType.INTEGER)
     private int id;
+    
+    @DatabaseField(foreign = true, foreignAutoRefresh = true, canBeNull = false)
     private Mesa mesa;
+    
+    @DatabaseField(foreign = true, foreignAutoRefresh = true, canBeNull = false)
     private Garcom garcom;
-    private ArrayList<ItemSolicitado> itens;
+    
+    @DatabaseField(canBeNull = false, dataType = DataType.ENUM_STRING)
     private StatusComanda status;
+    
+    private ArrayList<ItemSolicitado> itens;
 
     public Comanda(Mesa mesa, Garcom garcom) {
         this.id = proximoId++;
