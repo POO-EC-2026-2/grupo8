@@ -61,61 +61,18 @@ public class ComandaService {
     }
     
     
-    //Métodos de verificação de nível do funcionário
-    public boolean podeFecharAlta(Funcionario funcionario) {
-        if (funcionario == null) {
-            return false;
-        }
-        return obterValorNivel(funcionario.obterNivel()) >= 3;
-    }
-    
-    private void validarPermissaoAlta(Funcionario funcionario) {
-        if (funcionario == null) {
-            throw new IllegalArgumentException("O funcionário responsável pela operação não pode ser nulo.");
-        }
-        if (!podeFecharAlta(funcionario)) {
-            throw new SecurityException("Acesso negado para '" + funcionario.obterNome()
-                    + "' (nível: " + funcionario.obterNivel()
-                    + "). Apenas funcionários de NIVEL_3 ou superior podem interferir na comanda.");
-        }
-    }
-    
-    public boolean podeInterferirNaComanda(Funcionario funcionario) {
-        if (funcionario == null) {
-            return false;
-        }
-        return obterValorNivel(funcionario.obterNivel()) >= 2;
-    }
-
-    private void validarPermissaoInterferencia(Funcionario funcionario) {
-        if (funcionario == null) {
-            throw new IllegalArgumentException("O funcionário responsável pela operação não pode ser nulo.");
-        }
-        if (!podeInterferirNaComanda(funcionario)) {
-            throw new SecurityException("Acesso negado para '" + funcionario.obterNome()
-                    + "' (nível: " + funcionario.obterNivel()
-                    + "). Apenas funcionários de NIVEL_2 ou superior podem interferir na comanda.");
-        }
-    }
-
-    public boolean podeVisualizarComanda(Funcionario funcionario) {
-        if (funcionario == null) {
-            return false;
-        }
-        return obterValorNivel(funcionario.obterNivel()) >= 1;
-    }
-
-    private void validarPermissaoVisualizacao(Funcionario funcionario) {
+    //Verifica o nível mimímo do funcionário
+    private void validarNivelMinimo(Funcionario funcionario, int nivelMinimo, String acao) {
         if (funcionario == null) {
             throw new IllegalArgumentException("O funcionário não pode ser nulo.");
         }
-        if (!podeVisualizarComanda(funcionario)) {
+        if (obterValorNivel(funcionario.obterNivel()) < nivelMinimo) {
             throw new SecurityException("Acesso negado para '" + funcionario.obterNome()
                     + "' (nível: " + funcionario.obterNivel()
-                    + "). Indivíduos de NIVEL_0 não possuem acesso às comandas.");
+                    + "). É necessário NIVEL_" + nivelMinimo + " ou superior para " + acao + ".");
         }
     }
-
+    
     
     //Exige que a comanda exista, em caso de não existência o processo é interrompido
     private Comanda exigirComandaExistente(int idComanda) throws SQLException {
@@ -141,7 +98,7 @@ public class ComandaService {
     //Verifica se o funcionário pode interferir na comanda 
     //Abre uma comanda
     public Comanda abrirComanda(Funcionario operador, Mesa mesa) throws SQLException {
-        validarPermissaoInterferencia(operador);
+        validarNivelMinimo(operador, 2, "abrir comanda");
         if (mesa == null) {
             throw new IllegalArgumentException("A mesa não pode ser nula.");
         }
@@ -168,9 +125,9 @@ public class ComandaService {
 
     
     //Verifica se o funcionário pode interferir na comanda e define o mecanismo de lançamento de novo item na comanda
-    public ItemSolicitado adicionarItem(Funcionario funcionario, Comanda comanda, Produto produto, int quantidade)
+    public ItemSolicitado adicionarItem(Funcionario operador, Comanda comanda, Produto produto, int quantidade)
             throws SQLException {
-        validarPermissaoInterferencia(funcionario);
+        validarNivelMinimo(operador, 2, "adicionar item");
         validarComandaAberta(comanda);
         if (produto == null) {
             throw new IllegalArgumentException("O produto não pode ser nulo.");
@@ -191,18 +148,18 @@ public class ComandaService {
     }
 
     //Utiliza o método anterior para registrar um item na comanda
-    public ItemSolicitado adicionarItem(Funcionario funcionario, int idComanda, Produto produto, int quantidade)
+    public ItemSolicitado adicionarItem(Funcionario operador, int idComanda, Produto produto, int quantidade)
             throws SQLException {
-        validarPermissaoInterferencia(funcionario);
+        validarNivelMinimo(operador, 2, "adicionar item");
         Comanda comanda = exigirComandaExistente(idComanda);
-        return adicionarItem(funcionario, comanda, produto, quantidade);
+        return adicionarItem(operador, comanda, produto, quantidade);
     }
 
     
     //Verifica se o funcionário pode fechar a comanda 
     //Fecha a comanda
-    public void fecharComanda(Funcionario funcionario, Comanda comanda) throws SQLException {
-        validarPermissaoAlta(funcionario);
+    public void fecharComanda(Funcionario operador, Comanda comanda) throws SQLException {
+        validarNivelMinimo(operador, 3, "fechar comanda");
         validarComandaAberta(comanda);
     
         comanda.fechar();
@@ -216,17 +173,17 @@ public class ComandaService {
     
     
     //Fecha commanda pelo iD, utilizando o método anterior 
-    public void fecharComanda(Funcionario funcionario, int idComanda) throws SQLException {
-        validarPermissaoAlta(funcionario);
+    public void fecharComanda(Funcionario operador, int idComanda) throws SQLException {
+        validarNivelMinimo(operador, 3, "fechar comanda");
         Comanda comanda = exigirComandaExistente(idComanda);
-        fecharComanda(funcionario, comanda);
+        fecharComanda(operador, comanda);
     }
 
     
     //Verifica se o funcionário pode excluir a comanda 
     //Exclui a comanda
-    public void excluirComanda(Funcionario funcionario, int idComanda) throws SQLException {
-        validarPermissaoAlta(funcionario);
+    public void excluirComanda(Funcionario operador, int idComanda) throws SQLException {
+        validarNivelMinimo(operador, 3, "excluir comanda");
         Comanda comanda = exigirComandaExistente(idComanda);
         if (comanda.obterStatus() == StatusComanda.ABERTA) {
             throw new IllegalStateException("Não é permitido excluir uma comanda que ainda está aberta.");
@@ -237,8 +194,8 @@ public class ComandaService {
     
     //Verifica se o funcionário pode visualizar a comanda  
     //Calcula o valor total da conta pelos itens cadastrados na comanda
-    public double calcularTotal(Funcionario funcionario, Comanda comanda) {
-        validarPermissaoVisualizacao(funcionario);
+    public double calcularTotal(Funcionario operador, Comanda comanda) {
+        validarNivelMinimo(operador, 1, "calcular valor total da comanda");
         if (comanda == null) {
             throw new IllegalArgumentException("A comanda não pode ser nula.");
         }
@@ -248,8 +205,8 @@ public class ComandaService {
     
     //Verifica se o funcionário pode visualizar a comanda  
     //Calcula o valor total da conta pelos itens cadastrados na comanda pelo iD da comanda
-    public double calcularTotal(Funcionario funcionario, int idComanda) throws SQLException {
-        validarPermissaoVisualizacao(funcionario);
+    public double calcularTotal(Funcionario operador, int idComanda) throws SQLException {
+        validarNivelMinimo(operador, 1, "calcular valor total da comanda");
         Comanda comanda = exigirComandaExistente(idComanda);
         return comanda.calcularTotal();
     }
@@ -267,8 +224,8 @@ public class ComandaService {
     
     //Verifica se o funcionário pode visualizar a comanda  
     //Busca a comanda pelo iD da comanda
-    public Comanda buscarPorId(Funcionario funcionario, int idComanda) throws SQLException {
-        validarPermissaoVisualizacao(funcionario);
+    public Comanda buscarPorId(Funcionario operador, int idComanda) throws SQLException {
+        validarNivelMinimo(operador, 1, "buscar comanda por iD");
         return buscarPorIdInterno(idComanda);
     }
 
@@ -288,23 +245,23 @@ public class ComandaService {
     
     //Verifica se o funcionário pode visualizar a comanda 
     //Utiliza o método anterior para procurar comanda por mesa
-    public Comanda buscarComandaAbertaPorMesa(Funcionario funcionario, int numeroMesa) throws SQLException {
-        validarPermissaoVisualizacao(funcionario);
+    public Comanda buscarComandaAbertaPorMesa(Funcionario operador, int numeroMesa) throws SQLException {
+        validarNivelMinimo(operador, 1, "buscar comanda aberta");
         return buscarComandaAbertaPorMesa(numeroMesa);
     }
 
     
     //Verifica se o funcionário pode visualizar a comanda 
     //Lista todas as comandas 
-    public List<Comanda> listarTodas(Funcionario funcionario) throws SQLException {
-        validarPermissaoVisualizacao(funcionario);
+    public List<Comanda> listarTodas(Funcionario operador) throws SQLException {
+        validarNivelMinimo(operador, 1, "listar todas as mesas");
         return comandaDao.listarTodos();
     }
 
     //Verifica se o funcionário pode visualizar a comanda 
     //Lista todas as comandas abertas
-    public List<Comanda> listarAbertas(Funcionario funcionario) throws SQLException {
-        validarPermissaoVisualizacao(funcionario);
+    public List<Comanda> listarAbertas(Funcionario operador) throws SQLException {
+        validarNivelMinimo(operador, 1, "listar todas as mesas abertas");
         List<Comanda> abertas = new ArrayList<>();
         for (Comanda comanda : comandaDao.listarTodos()) {
             if (comanda.obterStatus() == StatusComanda.ABERTA) {
