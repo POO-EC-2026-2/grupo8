@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ufg.atlas.controllers.CardapioController">
    <top>
       <HBox prefHeight="80.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER_LEFT">
          <padding>
@@ -36,7 +36,7 @@
                         <Label text="COMIDAS" />
                         <ScrollPane fitToWidth="true" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                            <content>
-                              <VBox prefHeight="200.0" prefWidth="104.0" spacing="8.0">
+                              <VBox fx:id="listaComidas" prefHeight="200.0" prefWidth="104.0" spacing="8.0">
                                  <children>
                                     <Button maxWidth="1.7976931348623157E308" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="115.0" text="Hambúrguer — R$ 30,00" VBox.vgrow="ALWAYS" />
                                     <Button maxWidth="1.7976931348623157E308" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" text="Batata frita — R$ 25,00" />
@@ -53,7 +53,7 @@
                         <Label text="BEBIDAS" />
                         <ScrollPane fitToWidth="true" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                            <content>
-                              <VBox accessibleRole="CONTEXT_MENU" prefHeight="200.0" prefWidth="100.0" spacing="8.0">
+                              <VBox fx:id="listaBebidas" accessibleRole="CONTEXT_MENU" prefHeight="200.0" prefWidth="100.0" spacing="8.0">
                                  <children>
                                     <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="55.0" text="Refrigerante — R$ 10,00" />
                                     <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="55.0" text="Suco — R$ 12,00" />
@@ -75,13 +75,13 @@
                   <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                      <children>
                         <Label text="Itens selecionados" />
-                        <Label text="--" />
+                        <Label fx:id="quantidadeItens" text="--" />
                      </children>
                   </VBox>
                   <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                      <children>
                         <Label text="Valor parcial" />
-                        <Label text="--" />
+                        <Label fx:id="valorParcial" text="--" />
                      </children>
                   </VBox>
                   <Button mnemonicParsing="false" text="Confirmar pedido" />
