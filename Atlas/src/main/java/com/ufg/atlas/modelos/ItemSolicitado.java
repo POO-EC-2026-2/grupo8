@@ -7,6 +7,9 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "itens_solicitados_comanda")
 public class ItemSolicitado {
 
+    @DatabaseField(generatedId = true)
+    private int id;
+
     @DatabaseField(foreign = true, foreignAutoRefresh = true, canBeNull = false)
     private Produto produto;
     
@@ -20,6 +23,8 @@ public class ItemSolicitado {
         this.produto = produto;
         this.quantidade = quantidade;
     }
+
+    public ItemSolicitado(){};
 
     public double calcularTotal() {
         return produto.getPreco() * quantidade;

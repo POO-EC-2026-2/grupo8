@@ -16,7 +16,7 @@ public class BebidaDao {
         dao = DaoManager.createDao(conexao, Bebida.class);
     }
 
-    public void salvar(Bebida bebida) throws SQLException{
+    public void create(Bebida bebida) throws SQLException{
           dao.create(bebida);
     }
 

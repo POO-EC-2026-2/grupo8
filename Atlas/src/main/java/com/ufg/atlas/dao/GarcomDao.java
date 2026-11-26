@@ -15,7 +15,7 @@ public class GarcomDao {
     public GarcomDao(ConnectionSource conexao) throws SQLException {
         dao = DaoManager.createDao(conexao, Garcom.class);
     }
-    public void salvar(Garcom garcom) throws SQLException {
+    public void create(Garcom garcom) throws SQLException {
         dao.create(garcom);
     }
     

@@ -1,4 +1,4 @@
-package com.ufg.atlas.services.;
+package com.ufg.atlas.services;
 
 import com.ufg.atlas.dao.MesaDao;
 import com.ufg.atlas.modelos.Funcionario;
@@ -80,7 +80,7 @@ public class MesaService {
         }
 
         Mesa novaMesa = new Mesa(numero);
-        mesaDao.salvar(novaMesa);
+        mesaDao.create(novaMesa);
         return novaMesa;
     }
 
@@ -99,7 +99,7 @@ public class MesaService {
             throw new IllegalStateException("Já existe uma mesa cadastrada com o número " + mesa.obterNumero() + ".");
         }
 
-        mesaDao.salvar(mesa);
+        mesaDao.create(mesa);
     }
 
     

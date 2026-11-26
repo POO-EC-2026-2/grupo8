@@ -11,7 +11,7 @@ public class Comanda {
 
     private static int proximoId = 1;
 
-    @DatabaseField(canBeNull = false, dataType = DataType.INTEGER)
+    @DatabaseField(generatedId = true, canBeNull = false, dataType = DataType.INTEGER)
     private int id;
 
     @DatabaseField(foreign = true, foreignAutoRefresh = true, canBeNull = false)
@@ -24,6 +24,8 @@ public class Comanda {
     private StatusComanda status;
 
     private ArrayList<ItemSolicitado> itens;
+
+    public Comanda(){};
 
     public Comanda(Mesa mesa, Funcionario funcionario) {
         if (mesa == null) {

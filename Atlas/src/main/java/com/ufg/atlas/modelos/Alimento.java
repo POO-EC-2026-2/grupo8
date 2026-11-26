@@ -16,9 +16,9 @@ public class Alimento extends Produto {
 
     protected Alimento(){};
 
-    public Alimento(int id, String nome, String descricao, double preco,
+    public Alimento(String nome, String descricao, double preco,
                     CategoriaAlimento categoria, int quantidadePessoasAtendidas) {
-        super(id, nome, descricao, preco);
+        super(nome, descricao, preco);
         this.categoria = categoria;
         this.quantidadePessoasAtendidas = quantidadePessoasAtendidas;
     }

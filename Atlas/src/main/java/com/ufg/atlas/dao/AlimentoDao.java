@@ -15,7 +15,7 @@ public class AlimentoDao {
     public AlimentoDao(ConnectionSource conexao) throws SQLException {
         dao = DaoManager.createDao(conexao, Alimento.class);
     }
-    public void salvar(Alimento alimento) throws SQLException {
+    public void create(Alimento alimento) throws SQLException {
         dao.create(alimento);
     }
 

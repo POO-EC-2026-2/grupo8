@@ -2,32 +2,25 @@ package com.ufg.atlas.modelos;
 
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
 
-
-public abstract class Funcionario
+@DatabaseTable(tableName = "funcionarios")
+public class Funcionario
 {
+
+    @DatabaseField(generatedId = true)
+    protected int id;
+
     @DatabaseField(canBeNull = false, dataType = DataType.ENUM_STRING)
     protected NivelAcesso nivel;
-    
-    @DatabaseField(canBeNull = false, dataType = DataType.INTEGER)
-    protected int id;
     
     @DatabaseField(canBeNull = false, dataType = DataType.STRING)
     protected String nome;
 
     public Funcionario(){}
 
-    public Funcionario(int id, String nome) {
-        this.id = id;
+    public Funcionario( String nome) {
         this.nome = nome;
-    }
-
-    public int obterId() {
-        return id;
-    }
-
-    public void definirId(int id) {
-        this.id = id;
     }
 
     public String obterNome() {

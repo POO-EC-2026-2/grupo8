@@ -13,9 +13,9 @@ public class Bebida extends Produto {
 
     protected Bebida(){};
 
-    public Bebida(int id, String nome, String descricao, double preco,
+    public Bebida(String nome, String descricao, double preco,
                   CategoriaBebida categoria) {
-        super(id, nome, descricao, preco);
+        super(nome, descricao, preco);
         this.categoria = categoria;
     }
 }

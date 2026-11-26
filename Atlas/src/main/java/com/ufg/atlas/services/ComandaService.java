@@ -3,14 +3,7 @@ package com.ufg.atlas.services;
 import com.ufg.atlas.dao.ComandaDao;
 import com.ufg.atlas.dao.ItemSolicitadoDao;
 import com.ufg.atlas.dao.MesaDao;
-import com.ufg.atlas.modelos.Comanda;
-import com.ufg.atlas.modelos.Funcionario;
-import com.ufg.atlas.modelos.ItemSolicitado;
-import com.ufg.atlas.modelos.Mesa;
-import com.ufg.atlas.modelos.NivelAcesso;
-import com.ufg.atlas.modelos.Produto;
-import com.ufg.atlas.modelos.StatusComanda;
-import com.ufg.atlas.modelos.StatusMesa;
+import com.ufg.atlas.modelos.*;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -97,7 +90,7 @@ public class ComandaService {
     
     //Verifica se o funcionário pode interferir na comanda 
     //Abre uma comanda
-    public Comanda abrirComanda(Funcionario operador, Mesa mesa) throws SQLException {
+    public Comanda abrirComanda(Garcom operador, Mesa mesa) throws SQLException {
         validarNivelMinimo(operador, 2, "abrir comanda");
         if (mesa == null) {
             throw new IllegalArgumentException("A mesa não pode ser nula.");
@@ -140,7 +133,7 @@ public class ComandaService {
         comanda.adicionarItem(item);
 
         if (itemSolicitadoDao != null) {
-            itemSolicitadoDao.salvar(item);
+            itemSolicitadoDao.create(item);
         }
         comandaDao.atualizar(comanda);
 

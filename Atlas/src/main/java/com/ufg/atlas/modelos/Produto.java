@@ -1,9 +1,11 @@
 package com.ufg.atlas.modelos;
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
 
-public abstract class Produto {
+@DatabaseTable(tableName = "produtos")
+public class Produto {
 
-    @DatabaseField(id = true) // informa que os atributos serão armazenados no banco de dados
+    @DatabaseField(generatedId = true) // informa que os atributos serão armazenados no banco de dados
     private int id;
 
     @DatabaseField(canBeNull = false)
@@ -17,8 +19,7 @@ public abstract class Produto {
 
     protected Produto(){};
 
-    public Produto(int id, String nome, String descricao, double preco) {
-        this.id = id;
+    public Produto(String nome, String descricao, double preco) {
         this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;

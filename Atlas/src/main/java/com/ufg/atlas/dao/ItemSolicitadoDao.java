@@ -15,7 +15,7 @@ public class ItemSolicitadoDao {
     public ItemSolicitadoDao(ConnectionSource conexao) throws SQLException {
         dao = DaoManager.createDao(conexao, ItemSolicitado.class);
     }
-    public void salvar(ItemSolicitado itemSolicitado) throws SQLException {
+    public void create(ItemSolicitado itemSolicitado) throws SQLException {
         dao.create(itemSolicitado);
     }
     

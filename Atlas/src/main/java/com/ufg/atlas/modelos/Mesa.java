@@ -6,7 +6,10 @@ import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "mesas")
 public class Mesa { 
-    
+
+    @DatabaseField(generatedId = true)
+    private int id;
+
     @DatabaseField(canBeNull = false, dataType = DataType.INTEGER)
     private int numero;
     
@@ -17,6 +20,8 @@ public class Mesa {
         this.numero = numero;
         this.status = StatusMesa.LIVRE;
     }
+
+    public Mesa(){};
 
     public StatusMesa obterStatus() {
         return status;

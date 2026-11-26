@@ -175,9 +175,9 @@ public class CardapioService {
         }
 
         if (produto instanceof Alimento) {
-            alimentoDao.salvar((Alimento) produto);
+            alimentoDao.create((Alimento) produto);
         } else if (produto instanceof Bebida) {
-            bebidaDao.salvar((Bebida) produto);
+            bebidaDao.create((Bebida) produto);
         } else {
             throw new IllegalArgumentException("Tipo de produto não suportado: " + produto.getClass().getSimpleName());
         }

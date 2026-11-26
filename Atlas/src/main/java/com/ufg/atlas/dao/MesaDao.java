@@ -15,7 +15,7 @@ public class MesaDao {
     public MesaDao(ConnectionSource conexao) throws SQLException {
         dao = DaoManager.createDao(conexao, Mesa.class);
     }
-    public void salvar(Mesa mesa) throws SQLException {
+    public void create(Mesa mesa) throws SQLException {
         dao.create(mesa);
     }
     
