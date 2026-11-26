@@ -22,8 +22,14 @@ public class GarcomDao {
     public List<Garcom> listarTodos() throws SQLException {
         return dao.queryForAll();
     }
-    
-    public List<Garcom> buscarPorNome(String nome) throws SQLException {
+
+    public Garcom buscarUmPorNome(String nome) throws SQLException {
+        return dao.queryBuilder()
+                .where()
+                .like("nome", "%" + nome + "%")
+                .queryForFirst();
+    }
+    public List<Garcom> buscarTodosPorNome(String nome) throws SQLException {
         return dao.queryBuilder()
                 .where()
                 .like("nome", "%" + nome + "%")
