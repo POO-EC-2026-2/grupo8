@@ -3,6 +3,7 @@ package com.ufg.atlas.dao;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.support.ConnectionSource;
+import com.ufg.atlas.modelos.Garcom;
 import com.ufg.atlas.modelos.Gerente;
 
 import java.sql.SQLException;
@@ -21,6 +22,13 @@ public class GerenteDao {
     
     public List<Gerente> listarTodos() throws SQLException {
         return dao.queryForAll();
+    }
+
+    public Gerente buscarUmPorNome(String nome) throws SQLException {
+        return dao.queryBuilder()
+                .where()
+                .like("nome", "%" + nome + "%")
+                .queryForFirst();
     }
     
     public List<Gerente> buscarPorNome(String nome) throws SQLException {

@@ -2,6 +2,8 @@ package com.ufg.atlas.modelos;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
+import java.util.Scanner;
+
 @DatabaseTable(tableName = "produtos")
 public class Produto {
 
@@ -44,6 +46,8 @@ public class Produto {
     public void setPreco(double v) {
         this.preco = v;
     }
+
+
 
 
 }

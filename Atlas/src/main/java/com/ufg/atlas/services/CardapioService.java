@@ -161,17 +161,11 @@ public class CardapioService {
         if (produto == null) {
             throw new IllegalArgumentException("O produto não pode ser nulo.");
         }
-        if (produto.getId() <= 0) {
-            throw new IllegalArgumentException("O ID do produto deve ser maior que zero.");
-        }
         if (produto.getNome() == null || produto.getNome().trim().isEmpty()) {
             throw new IllegalArgumentException("O nome do produto é obrigatório.");
         }
         if (produto.getPreco() <= 0) {
             throw new IllegalArgumentException("O preço do produto deve ser maior que zero.");
-        }
-        if (carregarCardapioInterno().buscarProduto(produto.getId()) != null) {
-            throw new IllegalStateException("Já existe um produto no cardápio com o ID " + produto.getId() + ".");
         }
 
         if (produto instanceof Alimento) {

@@ -23,6 +23,13 @@ public class AlimentoDao {
         return dao.queryForAll();
     }
 
+    public Alimento listarUmPorNome(String nome) throws SQLException {
+        return dao.queryBuilder()
+                .where()
+                .like("nome", "%" + nome + "%")
+                .queryForFirst();
+    }
+
     public List<Alimento> buscarPorNome(String nome) throws SQLException {
         return dao.queryBuilder()
                 .where()
