@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ufg.atlas.controllers.LoginGarcomController">
    <top>
       <VBox alignment="CENTER" prefHeight="79.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
@@ -27,13 +27,13 @@
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
             <Label text="Login" />
-            <TextField alignment="TOP_LEFT" text="Insira seu e-mail...">
+            <TextField fx:id="campoEmail" alignment="TOP_LEFT" text="Insira seu e-mail...">
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>
             </TextField>
             <Label text="Senha" />
-            <TextField text="Insira sua senha..." VBox.vgrow="ALWAYS">
+            <TextField fx:id="campoSenha" text="Insira sua senha..." VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>
@@ -44,7 +44,7 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Limpar" HBox.hgrow="ALWAYS" />
+            <Button mnemonicParsing="false" onAction="#limparCampos" text="Limpar" HBox.hgrow="ALWAYS" />
             <Button mnemonicParsing="false" text="Confirmar" />
          </children>
          <padding>

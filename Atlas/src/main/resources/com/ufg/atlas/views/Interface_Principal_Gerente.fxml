@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ufg.atlas.controllers.GerenteController">
    <top>
       <Label text="GERENCIAMENTO DE MESAS" BorderPane.alignment="CENTER" />
    </top>
@@ -25,19 +25,19 @@
                <children>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Label text="--" />
+                        <Label fx:id="totalMesas" text="--" />
                         <Label text="Total de mesas" />
                      </children>
                   </VBox>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Label text="--" />
+                        <Label fx:id="mesasLivres" text="--" />
                         <Label text="Livres" />
                      </children>
                   </VBox>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Label text="--" />
+                        <Label fx:id="mesasOcupadas" text="--" />
                         <Label text="Ocupadas" />
                      </children>
                   </VBox>
@@ -54,18 +54,18 @@
                   <Insets top="8.0" />
                </padding>
                <children>
-                  <TextField text="Digite o número da mesa" />
-                  <ComboBox prefWidth="150.0" promptText="Estados" />
+                  <TextField fx:id="campoNumeroMesa" onAction="#buscarMesa" text="Digite o número da mesa" />
+                  <ComboBox fx:id="comboEstados" onAction="#filtrarPorEstado" prefWidth="150.0" promptText="Estados" />
                   <ComboBox prefWidth="150.0" promptText="Localização" />
-                  <Button mnemonicParsing="false" text="Limpar" />
+                  <Button mnemonicParsing="false" onAction="#limparFiltros" text="Limpar" />
                </children>
             </HBox>
-            <TableView prefHeight="298.0" prefWidth="600.0">
+            <TableView fx:id="tabelaMesas" prefHeight="298.0" prefWidth="600.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="Número" />
-                <TableColumn prefWidth="75.0" text="Localização" />
-                  <TableColumn prefWidth="75.0" text="Estado" />
-                  <TableColumn prefWidth="75.0" text="Garçom" />
+                <TableColumn fx:id="colunaNumero" prefWidth="75.0" text="Número" />
+                <TableColumn fx:id="colunaLocalizacao" prefWidth="75.0" text="Localização" />
+                  <TableColumn fx:id="colunaEstado" prefWidth="75.0" text="Estado" />
+                  <TableColumn fx:id="colunaGarcom" prefWidth="75.0" text="Garçom" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -77,7 +77,7 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="56.0" prefWidth="600.0" spacing="40.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Adicionar mesa" />
+            <Button mnemonicParsing="false" onAction="#adicionarMesa" text="Adicionar mesa" />
             <Button mnemonicParsing="false" text="Retirar mesa" />
             <Button mnemonicParsing="false" text="Consultar comandas" />
          </children>
