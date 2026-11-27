@@ -1,8 +1,8 @@
 package com.ufg.atlas.modelos;
 
 import java.util.ArrayList;
-import java.utill.Collections;
-import java.utill.list;
+import java.util.Collections;
+import java.util.list;
 
 public class PedidoCozinha {
     private final Comanda comanda;
