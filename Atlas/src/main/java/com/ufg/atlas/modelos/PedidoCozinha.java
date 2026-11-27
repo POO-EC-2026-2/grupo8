@@ -20,7 +20,7 @@ public class PedidoCozinha {
     }
     
     public int getNumeroMesa(){
-        return comanda.obtermesa().obterNumero();
+        return comanda.obterMesa().obterNumero();
     }
 
     public Comanda getComanda(){
@@ -35,7 +35,7 @@ public class PedidoCozinha {
         return comanda.obterStatusCozinha();
     }
     
-    public long getEnvidadaCozinhaEm(){
+    public long getEnviadaCozinhaEm(){
         return comanda.obterEnviadaCozinhaEm();
     }
 }
