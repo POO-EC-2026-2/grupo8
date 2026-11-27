@@ -29,6 +29,14 @@ public class ComandaDao {
                 .like("nome", "%" + nome + "%")
                 .query();
     }
+
+    public Comanda listarUmPorNome(String nome) throws SQLException {
+    return dao.queryBuilder()
+                .where()
+                .like("nome", "%" + nome + "%")
+                .queryForFirst();
+    }
+    
     public void atualizar(Comanda comanda) throws SQLException {
         dao.update(comanda);
     }
