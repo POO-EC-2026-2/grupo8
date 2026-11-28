@@ -40,12 +40,12 @@ public class PedidoService{
     public synchronized List<PedidoCozinha> buscarPedidosRecentes() throws SQLException{
         List<PedidoCozinha> pedidos = new ArrayList<>();
 
-        for (Comanda comanda : comandaDao.listarMaisRecentes(QUANTIDADE_PEDIDOS_TELA)){
+        for (Comanda comanda : comandaDao.listLatest(QUANTIDADE_PEDIDOS_TELA)){
             if (comanda.obterEnviadaCozinhaEm() <= 0) {
                 continue;
             }
 
-            List<ItemSolicitado> itens = itemSolicitadoDao.listarPorComanda(comanda.obterId());
+            List<ItemSolicitado> itens = itemSolicitadoDao.listByComanda(comanda.obterId());
             pedidos.add(new PedidoCozinha(comanda, itens));
             ultimoIdVisto = Math.max(ultimoIdVisto, comanda.obterId());
         }
@@ -62,7 +62,7 @@ public class PedidoService{
             comanda.definirStatusCozinha(StatusPedidoCozinha.PEDIDO);
         }
 
-        comandaDao.atualizar(comanda);
+        comandaDao.update(comanda);
     }
 
     public synchronized StatusPedidoCozinha avancarStatus(int idComanda) throws SQLException{
@@ -80,7 +80,7 @@ public class PedidoService{
         }
 
         comanda.definirStatusCozinha(proximo);
-        comandaDao.atualizar(comanda);
+        comandaDao.update(comanda);
         return proximo;
     }
 
@@ -97,7 +97,7 @@ public class PedidoService{
             comanda.definirEnviadaCozinhaEm(System.currentTimeMillis());
         }
 
-        comandaDao.atualizar(comanda);
+        comandaDao.update(comanda);
     }
 
     public synchronized int obterUltimoIdVisto(){
@@ -110,7 +110,7 @@ public class PedidoService{
     }
 
     private Comanda exigirComanda(int idComanda) throws SQLException{
-        for (Comanda comanda : comandaDao.listarTodos()){
+        for (Comanda comanda : comandaDao.listAll()){
             if (comanda.obterId() == idComanda){
                 return comanda;
             }

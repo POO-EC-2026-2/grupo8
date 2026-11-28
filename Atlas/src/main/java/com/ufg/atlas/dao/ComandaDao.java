@@ -15,29 +15,29 @@ public class ComandaDao {
     public ComandaDao(ConnectionSource conexao) throws SQLException {
         dao = DaoManager.createDao(conexao, Comanda.class);
     }
-    public void salvar(Comanda comanda) throws SQLException {
+    public void create(Comanda comanda) throws SQLException {
         dao.create(comanda);
     }
     
-    public List<Comanda> listarTodos() throws SQLException {
+    public List<Comanda> listAll() throws SQLException {
         return dao.queryForAll();
     }
     
-    public List<Comanda> buscarPorNome(String nome) throws SQLException {
+    public List<Comanda> findByName(String nome) throws SQLException {
         return dao.queryBuilder()
                 .where()
                 .like("nome", "%" + nome + "%")
                 .query();
     }
 
-    public Comanda listarUmPorNome(String nome) throws SQLException {
+    public Comanda findOneByName(String nome) throws SQLException {
     return dao.queryBuilder()
                 .where()
                 .like("nome", "%" + nome + "%")
                 .queryForFirst();
     }
 
-    public List<Comanda> listarMaisRecentes(int limite) throws SQLException {
+    public List<Comanda> listLatest(int limite) throws SQLException {
     return dao.queryBuilder()
             .orderBy("id", false)
             .limit((long) limite)
@@ -46,11 +46,11 @@ public class ComandaDao {
     //usado para o display da cozinha
 
     
-    public void atualizar(Comanda comanda) throws SQLException {
+    public void update(Comanda comanda) throws SQLException {
         dao.update(comanda);
     }
     
-    public void excluir(int id) throws SQLException {
+    public void delete(int id) throws SQLException {
         dao.deleteById(id);
     }
 }

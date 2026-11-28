@@ -108,7 +108,7 @@ public class ComandaService {
         Comanda novaComanda = new Comanda(mesa, operador);
         mesa.definirStatus(StatusMesa.OCUPADA);
 
-        comandaDao.salvar(novaComanda);
+        comandaDao.create(novaComanda);
         if (mesaDao != null) {
             mesaDao.update(mesa);
         }
@@ -135,7 +135,7 @@ public class ComandaService {
         if (itemSolicitadoDao != null) {
             itemSolicitadoDao.create(item);
         }
-        comandaDao.atualizar(comanda);
+        comandaDao.update(comanda);
 
         return item;
     }
@@ -161,7 +161,7 @@ public class ComandaService {
             mesaDao.update(mesa);
         }
     
-        comandaDao.atualizar(comanda);
+        comandaDao.update(comanda);
     }
     
     
@@ -181,7 +181,7 @@ public class ComandaService {
         if (comanda.obterStatus() == StatusComanda.ABERTA) {
             throw new IllegalStateException("Não é permitido excluir uma comanda que ainda está aberta.");
         }
-        comandaDao.excluir(idComanda);
+        comandaDao.delete(idComanda);
     }
 
     
@@ -207,7 +207,7 @@ public class ComandaService {
     
     //Busca comanda pelo iD da comanda
     private Comanda buscarPorIdInterno(int idComanda) throws SQLException {
-        for (Comanda comanda : comandaDao.listarTodos()) {
+        for (Comanda comanda : comandaDao.listAll()) {
             if (comanda.obterId() == idComanda) {
                 return comanda;
             }
@@ -225,7 +225,7 @@ public class ComandaService {
     
     //Busca comanda aberta da mesa associada
     public Comanda buscarComandaAbertaPorMesa(int numeroMesa) throws SQLException {
-        for (Comanda comanda : comandaDao.listarTodos()) {
+        for (Comanda comanda : comandaDao.listAll()) {
             Mesa mesa = comanda.obterMesa();
             if (mesa != null
                     && mesa.obterNumero() == numeroMesa
@@ -248,7 +248,7 @@ public class ComandaService {
     //Lista todas as comandas 
     public List<Comanda> listarTodas(Funcionario operador) throws SQLException {
         validarNivelMinimo(operador, 1, "listar todas as mesas");
-        return comandaDao.listarTodos();
+        return comandaDao.listAll();
     }
 
     //Verifica se o funcionário pode visualizar a comanda 
@@ -256,7 +256,7 @@ public class ComandaService {
     public List<Comanda> listarAbertas(Funcionario operador) throws SQLException {
         validarNivelMinimo(operador, 1, "listar todas as mesas abertas");
         List<Comanda> abertas = new ArrayList<>();
-        for (Comanda comanda : comandaDao.listarTodos()) {
+        for (Comanda comanda : comandaDao.listAll()) {
             if (comanda.obterStatus() == StatusComanda.ABERTA) {
                 abertas.add(comanda);
             }
