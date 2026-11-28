@@ -49,6 +49,7 @@ public class PedidoService{
             pedidos.add(new PedidoCozinha(comanda, itens));
             ultimoIdVisto = Math.max(ultimoIdVisto, comanda.obterId());
         }
+    return pedidos;
     }
 
     public synchronized void enviarParaCozinha(int idComanda) throws SQLException{
