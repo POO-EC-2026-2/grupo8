@@ -72,7 +72,7 @@ public class Testes {
 
         CardapioService cardapioService = new CardapioService(alimentoDao, bebidaDao);
 
-        Gerente garcom = gerenteDao.buscarUmPorNome("Rafael");
+        Gerente garcom = gerenteDao.findOneByName("Rafael");
 
         System.out.print("Insira o nome: ");
         String nome = scanner.nextLine();

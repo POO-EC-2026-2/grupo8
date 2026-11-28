@@ -19,21 +19,21 @@ public class MesaDao {
         dao.create(mesa);
     }
     
-    public List<Mesa> listarTodos() throws SQLException {
+    public List<Mesa> listAll() throws SQLException {
         return dao.queryForAll();
     }
     
-    public List<Mesa> buscarPorNome(String nome) throws SQLException {
+    public List<Mesa> findByName(String nome) throws SQLException {
         return dao.queryBuilder()
                 .where()
                 .like("nome", "%" + nome + "%")
                 .query();
     }
-    public void atualizar(Mesa mesa) throws SQLException {
+    public void update(Mesa mesa) throws SQLException {
         dao.update(mesa);
     }
     
-    public void excluir(int id) throws SQLException {
+    public void delete(int id) throws SQLException {
         dao.deleteById(id);
     }
 }

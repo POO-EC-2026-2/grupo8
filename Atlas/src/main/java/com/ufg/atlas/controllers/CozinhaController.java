@@ -59,6 +59,7 @@ public class CozinhaController {
                 consultarPedidos();
             }
         };
+        timer.schedule(tarefa, 0, 5000);
     }
 
     private void consultarPedidos(){
@@ -88,7 +89,8 @@ public class CozinhaController {
 
     private void mostrarPedidos(List<PedidoCozinha> pedidos){
         if (!Platform.isFxApplicationThread()){
-            Platform.runLater(() -> mostrarPedidos(pedidos));
+            List<PedidoCozinha> pedidosRecebidos = pedidos;
+            Platform.runLater(() -> mostrarPedidos(pedidosRecebidos));
             return;
         }
         if (painelPedidos == null){

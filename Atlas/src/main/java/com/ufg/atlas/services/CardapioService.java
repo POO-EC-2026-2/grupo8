@@ -64,7 +64,7 @@ public class CardapioService {
     //Costrói instâncias de cardápio com os registros do banco
     private Cardapio carregarCardapioComida() throws SQLException {
         Cardapio cardapioComida = new Cardapio();
-        for (Alimento alimento : alimentoDao.listarTodos()) {
+        for (Alimento alimento : alimentoDao.listAll()) {
             cardapioComida.adicionarProduto(alimento);
         }
         return cardapioComida;
@@ -72,7 +72,7 @@ public class CardapioService {
     
     private Cardapio carregarCardapioBebida() throws SQLException {
         Cardapio cardapioBebida = new Cardapio();
-        for (Bebida bebida : bebidaDao.listarTodos()) {
+        for (Bebida bebida : bebidaDao.listAll()) {
             cardapioBebida.adicionarProduto(bebida);
         }
         return cardapioBebida;
@@ -80,10 +80,10 @@ public class CardapioService {
     
     private Cardapio carregarCardapioInterno() throws SQLException {
         Cardapio cardapio = new Cardapio();
-        for (Alimento alimento : alimentoDao.listarTodos()) {
+        for (Alimento alimento : alimentoDao.listAll()) {
             cardapio.adicionarProduto(alimento);
         }
-        for (Bebida bebida : bebidaDao.listarTodos()) {
+        for (Bebida bebida : bebidaDao.listAll()) {
             cardapio.adicionarProduto(bebida);
         }
         return cardapio;
@@ -148,8 +148,8 @@ public class CardapioService {
 
         String busca = termo.trim();
         List<Produto> encontrados = new ArrayList<>();
-        encontrados.addAll(alimentoDao.buscarPorNome(busca));
-        encontrados.addAll(bebidaDao.buscarPorNome(busca));
+        encontrados.addAll(alimentoDao.findByName(busca));
+        encontrados.addAll(bebidaDao.findByName(busca));
         return encontrados;
     }
 
@@ -188,9 +188,9 @@ public class CardapioService {
         }
 
         if (produto instanceof Alimento) {
-            alimentoDao.excluir(id);
+            alimentoDao.delete(id);
         } else if (produto instanceof Bebida) {
-            bebidaDao.excluir(id);
+            bebidaDao.delete(id);
         }
     }
     

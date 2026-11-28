@@ -1,6 +1,6 @@
-<!-- Gera os cards de cada pedido para ir para o display da cozinha -->
-
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Gera os cards de cada pedido para ir para o display da cozinha -->
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
