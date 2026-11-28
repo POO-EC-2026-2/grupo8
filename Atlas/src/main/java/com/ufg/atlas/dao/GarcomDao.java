@@ -19,34 +19,28 @@ public class GarcomDao {
         dao.create(garcom);
     }
     
-    public List<Garcom> listarTodos() throws SQLException {
+    public List<Garcom> listAll() throws SQLException {
         return dao.queryForAll();
     }
 
-    public Garcom listarUmPorNome(String nome) throws SQLException {
+    public Garcom findOneByName(String nome) throws SQLException {
         return dao.queryBuilder()
                 .where()
                 .like("nome", "%" + nome + "%")
                 .queryForFirst();
     }
 
-    public Garcom buscarUmPorNome(String nome) throws SQLException {
-        return dao.queryBuilder()
-                .where()
-                .like("nome", "%" + nome + "%")
-                .queryForFirst();
-    }
-    public List<Garcom> buscarTodosPorNome(String nome) throws SQLException {
+    public List<Garcom> findByName(String nome) throws SQLException {
         return dao.queryBuilder()
                 .where()
                 .like("nome", "%" + nome + "%")
                 .query();
     }
-    public void atualizar(Garcom garcom) throws SQLException {
+    public void update(Garcom garcom) throws SQLException {
         dao.update(garcom);
     }
     
-    public void excluir(int id) throws SQLException {
+    public void delete(int id) throws SQLException {
         dao.deleteById(id);
     }
 }

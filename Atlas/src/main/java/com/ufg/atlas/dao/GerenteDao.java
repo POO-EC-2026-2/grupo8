@@ -16,40 +16,32 @@ public class GerenteDao {
     public GerenteDao(ConnectionSource conexao) throws SQLException {
         dao = DaoManager.createDao(conexao, Gerente.class);
     }
-    public void salvar(Gerente gerente) throws SQLException {
+    public void create(Gerente gerente) throws SQLException {
         dao.create(gerente);
     }
     
-    public List<Gerente> listarTodos() throws SQLException {
+    public List<Gerente> listAll() throws SQLException {
         return dao.queryForAll();
     }
 
-    public Gerente listarUmPorNome(String nome) throws SQLException {
+    public Gerente findOneByName(String nome) throws SQLException {
         return dao.queryBuilder()
                 .where()
                 .like("nome", "%" + nome + "%")
                 .queryForFirst();
     }
 
-
-    public Gerente buscarUmPorNome(String nome) throws SQLException {
-        return dao.queryBuilder()
-                .where()
-                .like("nome", "%" + nome + "%")
-                .queryForFirst();
-    }
-    
-    public List<Gerente> buscarPorNome(String nome) throws SQLException {
+    public List<Gerente> findByName(String nome) throws SQLException {
         return dao.queryBuilder()
                 .where()
                 .like("nome", "%" + nome + "%")
                 .query();
     }
-    public void atualizar(Gerente gerente) throws SQLException {
+    public void update(Gerente gerente) throws SQLException {
         dao.update(gerente);
     }
     
-    public void excluir(int id) throws SQLException {
+    public void delete(int id) throws SQLException {
         dao.deleteById(id);
     }
 }
