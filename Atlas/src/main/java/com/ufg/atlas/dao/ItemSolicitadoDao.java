@@ -23,7 +23,7 @@ public class ItemSolicitadoDao {
         return dao.queryForAll();
     }
 
-    public List<ItemSolicitado> listarPorComanda(int idComanda) throws SQLexception{
+    public List<ItemSolicitado> listarPorComanda(int idComanda) throws SQLException{
         return dao.queryBuilder()
                 .where()
                 .eq("comanda_id", idComanda)
