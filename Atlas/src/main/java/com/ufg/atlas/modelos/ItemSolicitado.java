@@ -19,15 +19,42 @@ public class ItemSolicitado {
     @DatabaseField(canBeNull = false, dataType = DataType.INTEGER)
     private int quantidade;
 
+    @DatabaseField
+    private String observacao;
+
     public ItemSolicitado(Produto produto, int quantidade) {
         this.produto = produto;
         this.quantidade = quantidade;
+    }
+
+    public ItemSolicitado(Produto produto, Comanda comanda, int quantidade, String observacao){
+        this.produto = produto;
+        this.comanda = comanda;
+        this.quantidade = quantidade;
+        this.observacao = observacao;
     }
 
     public ItemSolicitado(){};
 
     public double calcularTotal() {
         return produto.getPreco() * quantidade;
+    }
+
+    public int getId(){
+        return id;
+    }
+
+    public Produto getProduto(){
+        return produto;
+    }
+    public Comanda getComanda(){
+        return comanda;
+    }
+    public int getQuantidade(){
+        return quantidade;
+    }
+    public String getObservacao(){
+        return observacao;
     }
 }
 

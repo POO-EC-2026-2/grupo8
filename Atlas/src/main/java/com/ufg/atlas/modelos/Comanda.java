@@ -23,6 +23,13 @@ public class Comanda {
     @DatabaseField(canBeNull = false, dataType = DataType.ENUM_STRING)
     private StatusComanda status;
 
+    @DatabaseField(canBeNull = false, dataType = DataType.ENUM_STRING)
+    private StatusPedidoCozinha statusCozinha = StatusPedidoCozinha.PEDIDO;
+
+    @DatabaseField(canBeNull = false)
+    private long enviadaCozinhaEm;
+    //para o painel da cozinha preciso salvar no banco de dados o status do pedido e o horario com que ele foi criado
+    
     private ArrayList<ItemSolicitado> itens;
 
     public Comanda(){};
@@ -79,4 +86,21 @@ public class Comanda {
     public int obterId() {
         return id;
     }
+
+    public StatusPedidoCozinha obterStatusCozinha(){
+        return statusCozinha;
+    }
+
+    public void definirStatusCozinha(StatusPedidoCozinha status){
+        this.statusCozinha = status;
+    }
+
+    public long obterEnviadaCozinhaEm(){
+        return enviadaCozinhaEm;
+    }
+
+    public void definirEnviadaCozinhaEm(long enviadaCozinhaEm){
+    this.enviadaCozinhaEm = enviadaCozinhaEm;
+    }
+    
 }

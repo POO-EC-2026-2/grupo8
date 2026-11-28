@@ -22,6 +22,14 @@ public class ItemSolicitadoDao {
     public List<ItemSolicitado> listarTodos() throws SQLException {
         return dao.queryForAll();
     }
+
+    public List<ItemSolicitado> listarPorComanda(int idComanda) throws SQLException{
+        return dao.queryBuilder()
+                .where()
+                .eq("comanda_id", idComanda)
+                .query();
+    }
+    //usado na interface da cozinha
     
     public List<ItemSolicitado> buscarPorNome(String nome) throws SQLException {
         return dao.queryBuilder()

@@ -23,6 +23,14 @@ public class FuncionarioDao {
         return dao.queryForAll();
     }
 
+
+    public Funcionario listarUmPorNome(String nome) throws SQLException {
+        return dao.queryBuilder()
+                .where()
+                .like("nome", "%" + nome + "%")
+                .queryForFirst();
+    }
+
     public List<Funcionario> buscarPorNome(String nome) throws SQLException {
         return dao.queryBuilder()
                 .where()

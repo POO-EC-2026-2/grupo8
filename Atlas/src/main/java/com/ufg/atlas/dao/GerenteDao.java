@@ -24,6 +24,14 @@ public class GerenteDao {
         return dao.queryForAll();
     }
 
+    public Gerente listarUmPorNome(String nome) throws SQLException {
+        return dao.queryBuilder()
+                .where()
+                .like("nome", "%" + nome + "%")
+                .queryForFirst();
+    }
+
+
     public Gerente buscarUmPorNome(String nome) throws SQLException {
         return dao.queryBuilder()
                 .where()

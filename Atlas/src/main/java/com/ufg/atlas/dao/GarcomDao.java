@@ -23,6 +23,13 @@ public class GarcomDao {
         return dao.queryForAll();
     }
 
+    public Garcom listarUmPorNome(String nome) throws SQLException {
+        return dao.queryBuilder()
+                .where()
+                .like("nome", "%" + nome + "%")
+                .queryForFirst();
+    }
+
     public Garcom buscarUmPorNome(String nome) throws SQLException {
         return dao.queryBuilder()
                 .where()

@@ -29,6 +29,23 @@ public class ComandaDao {
                 .like("nome", "%" + nome + "%")
                 .query();
     }
+
+    public Comanda listarUmPorNome(String nome) throws SQLException {
+    return dao.queryBuilder()
+                .where()
+                .like("nome", "%" + nome + "%")
+                .queryForFirst();
+    }
+
+    public List<Comanda> listarMaisRecentes(int limite) throws SQLException {
+    return dao.queryBuilder()
+            .orderBy("id", false)
+            .limit((long) limite)
+            .query();
+    }
+    //usado para o display da cozinha
+
+    
     public void atualizar(Comanda comanda) throws SQLException {
         dao.update(comanda);
     }
