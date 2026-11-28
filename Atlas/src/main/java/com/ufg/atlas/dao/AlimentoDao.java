@@ -19,28 +19,28 @@ public class AlimentoDao {
         dao.create(alimento);
     }
 
-    public List<Alimento> listarTodos() throws SQLException {
+    public List<Alimento> listAll() throws SQLException {
         return dao.queryForAll();
     }
 
-    public Alimento listarUmPorNome(String nome) throws SQLException {
+    public Alimento findOneByName(String nome) throws SQLException {
         return dao.queryBuilder()
                 .where()
                 .like("nome", "%" + nome + "%")
                 .queryForFirst();
     }
 
-    public List<Alimento> buscarPorNome(String nome) throws SQLException {
+    public List<Alimento> findByName(String nome) throws SQLException {
         return dao.queryBuilder()
                 .where()
                 .like("nome", "%" + nome + "%")
                 .query();
     }
-    public void atualizar(Alimento alimento) throws SQLException {
+    public void update(Alimento alimento) throws SQLException {
         dao.update(alimento);
     }
 
-    public void excluir(int id) throws SQLException {
+    public void delete(int id) throws SQLException {
         dao.deleteById(id);
     }
 }
