@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="612.0" prefWidth="792.0" style="-fx-background-color: #171717; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ufg.atlas.controllers.IntermediariaGerenteController">
+   <top>
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="53.0" prefWidth="590.0">
+               <children>
+                  <Label style="-fx-font-weight: bold; -fx-font-size: 30px; -fx-text-fill: #BDBDBD;" text="Olá," />
+                  <Label fx:id="nomeGerente" style="-fx-font-weight: bold; -fx-font-size: 30px; -fx-text-fill: #F2F2F2;" text="(Nome do gerente)" />
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0" />
+         </children>
+         <padding>
+            <Insets left="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </top>
+   <center>
+      <VBox prefHeight="220.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#consultarMesas" prefHeight="100.0" prefWidth="190.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="Consultar mesas" HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="190.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-weight: bold; -fx-font-size: 15px;" text="Quadro de funcionários" HBox.hgrow="ALWAYS" />
+               </children>
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

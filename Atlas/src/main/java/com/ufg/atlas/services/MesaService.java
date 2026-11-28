@@ -115,7 +115,7 @@ public class MesaService {
     //Lista todas as mesas
     public List<Mesa> listarTodas(Funcionario funcionario) throws SQLException {
         validarNivelMinimo(funcionario, 1, "visualizar mesas");
-        return mesaDao.listarTodos();
+        return mesaDao.listAll();
     }
 
     
@@ -128,7 +128,7 @@ public class MesaService {
         }
 
         List<Mesa> resultado = new ArrayList<>();
-        for (Mesa mesa : mesaDao.listarTodos()) {
+        for (Mesa mesa : mesaDao.listAll()) {
             if (mesa.obterStatus() == status) {
                 resultado.add(mesa);
             }
@@ -167,7 +167,7 @@ public class MesaService {
         }
 
         mesa.definirStatus(StatusMesa.OCUPADA);
-        mesaDao.atualizar(mesa);
+        mesaDao.update(mesa);
     }
 
     
@@ -178,7 +178,7 @@ public class MesaService {
         validarNivelMinimo(operador, 3, "liberar mesas");
         Mesa mesa = exigirMesaExistente(numero);
         mesa.definirStatus(StatusMesa.LIVRE);
-        mesaDao.atualizar(mesa);
+        mesaDao.update(mesa);
     }
 
     
@@ -192,7 +192,7 @@ public class MesaService {
         }
 
         mesa.definirStatus(StatusMesa.INDISPONIVEL);
-        mesaDao.atualizar(mesa);
+        mesaDao.update(mesa);
     }
 
 
@@ -204,13 +204,13 @@ public class MesaService {
         if (mesa.obterStatus() == StatusMesa.OCUPADA) {
             throw new IllegalStateException("Não é permitido excluir uma mesa ocupada.");
         }
-        mesaDao.excluir(numero);
+        mesaDao.delete(numero);
     }
 
     
     //Busca uma mesa pelo seu iD
     private Mesa buscarPorNumeroInterno(int numero) throws SQLException {
-        for (Mesa mesa : mesaDao.listarTodos()) {
+        for (Mesa mesa : mesaDao.listAll()) {
             if (mesa.obterNumero() == numero) {
                 return mesa;
             }

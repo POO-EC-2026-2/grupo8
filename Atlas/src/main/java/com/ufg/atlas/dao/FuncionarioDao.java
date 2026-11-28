@@ -15,25 +15,33 @@ public class FuncionarioDao {
     public FuncionarioDao(ConnectionSource conexao) throws SQLException {
         dao = DaoManager.createDao(conexao, Funcionario.class);
     }
-    public void salvar(Funcionario funcionario) throws SQLException {
+    public void create(Funcionario funcionario) throws SQLException {
         dao.create(funcionario);
     }
 
-    public List<Funcionario> listarTodos() throws SQLException {
+    public List<Funcionario> listAll() throws SQLException {
         return dao.queryForAll();
     }
 
-    public List<Funcionario> buscarPorNome(String nome) throws SQLException {
+
+    public Funcionario findOneByName(String nome) throws SQLException {
+        return dao.queryBuilder()
+                .where()
+                .like("nome", "%" + nome + "%")
+                .queryForFirst();
+    }
+
+    public List<Funcionario> findByName(String nome) throws SQLException {
         return dao.queryBuilder()
                 .where()
                 .like("nome", "%" + nome + "%")
                 .query();
     }
-    public void atualizar(Funcionario funcionario) throws SQLException {
+    public void update(Funcionario funcionario) throws SQLException {
         dao.update(funcionario);
     }
 
-    public void excluir(int id) throws SQLException {
+    public void delete(int id) throws SQLException {
         dao.deleteById(id);
     }
 }

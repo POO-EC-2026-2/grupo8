@@ -19,21 +19,29 @@ public class ItemSolicitadoDao {
         dao.create(itemSolicitado);
     }
     
-    public List<ItemSolicitado> listarTodos() throws SQLException {
+    public List<ItemSolicitado> listAll() throws SQLException {
         return dao.queryForAll();
     }
+
+    public List<ItemSolicitado> listByComanda(int idComanda) throws SQLException{
+        return dao.queryBuilder()
+                .where()
+                .eq("comanda_id", idComanda)
+                .query();
+    }
+    //usado na interface da cozinha
     
-    public List<ItemSolicitado> buscarPorNome(String nome) throws SQLException {
+    public List<ItemSolicitado> findByName(String nome) throws SQLException {
         return dao.queryBuilder()
                 .where()
                 .like("nome", "%" + nome + "%")
                 .query();
     }
-    public void atualizar(ItemSolicitado itemSolicitado) throws SQLException {
+    public void update(ItemSolicitado itemSolicitado) throws SQLException {
         dao.update(itemSolicitado);
     }
     
-    public void excluir(int id) throws SQLException {
+    public void delete(int id) throws SQLException {
         dao.deleteById(id);
     }
 }

@@ -9,6 +9,8 @@ import com.ufg.atlas.services.MesaService;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -59,6 +61,27 @@ public class GarcomController {
         colunaNumero.setCellValueFactory(celula -> new SimpleStringProperty(String.valueOf(celula.getValue().obterNumero())));
         colunaEstado.setCellValueFactory(celula -> new SimpleStringProperty(String.valueOf(celula.getValue().obterStatus())));
         comboEstados.getItems().addAll(StatusMesa.values());
+
+        tabelaMesas.setOnMouseClicked(evento -> {
+            Mesa mesa = tabelaMesas.getSelectionModel().getSelectedItem();
+            if (evento.getClickCount() == 2 && mesa != null) {
+                abrirMesa(mesa.obterNumero());
+            }
+        });
+    }
+
+
+    private void abrirMesa(int numero) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ufg/atlas/views/Interface_Mesas.fxml"));
+            Parent tela = loader.load();
+            MesaController mesaController = loader.getController();
+            mesaController.definirFuncionario(funcionario);
+            mesaController.carregarMesa(numero);
+            tabelaMesas.getScene().setRoot(tela);
+        } catch (Exception erro) {
+            mostrarErro(erro.getMessage());
+        }
     }
 
 

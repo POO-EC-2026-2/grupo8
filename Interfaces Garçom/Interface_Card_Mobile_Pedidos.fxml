@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="320.0" style="-fx-background-radius: 10; -fx-background-color: #171717; -fx-border-color: #9E2638; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER" prefHeight="28.0" prefWidth="310.0" spacing="10.0" style="-fx-background-color: #292929; -fx-border-radius: 10; -fx-border-color: #454545; -fx-border-radius: 10;">
+         <children>
+            <Label style="-fx-text-fill: #F2F2F2; -fx-font-weight: bold;" text="Pedido --" HBox.hgrow="ALWAYS" />
+            <Region prefHeight="75.0" prefWidth="77.0" HBox.hgrow="ALWAYS" />
+            <Label style="-fx-text-fill: #F2F2F2; -fx-font-weight: bold;" text="Status do pedido" HBox.hgrow="ALWAYS" />
+         </children>
+         <VBox.margin>
+            <Insets left="5.0" right="5.0" top="5.0" />
+         </VBox.margin>
+         <padding>
+            <Insets left="5.0" right="5.0" />
+         </padding>
+      </HBox>
+      <HBox prefHeight="112.0" prefWidth="320.0" VBox.vgrow="ALWAYS">
+         <children>
+            <TableView editable="true" prefHeight="116.0" prefWidth="320.0" style="-fx-background-color: #292929; -fx-background-radius: 10; -fx-border-color: #454545; -fx-border-radius: 10; -fx-text-fill: #F2F2F2;" HBox.hgrow="ALWAYS">
+              <columns>
+                <TableColumn prefWidth="75.0" text="Itens" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+      </HBox>
+   </children>
+</VBox>

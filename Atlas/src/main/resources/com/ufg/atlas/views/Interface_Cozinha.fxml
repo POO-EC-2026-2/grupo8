@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Tem como objetivo organizar os cards de pedido gerado pelo CardPedido.fxml na tela da cozinha -->
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ufg.atlas.controllers.CozinhaController">
+   <top>
+      <Label fx:id="lblUltimoPedido" text="Pedidos da cozinha"></Label>
+   </top>
+   <center>
+      <ScrollPane fitToWidth="true">
+         <content>
+            <FlowPane fx:id="painelPedidos" hgap="12.0" vgap="12.0"></FlowPane>
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>

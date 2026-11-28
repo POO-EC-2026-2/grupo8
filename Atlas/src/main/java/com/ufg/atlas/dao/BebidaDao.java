@@ -20,22 +20,22 @@ public class BebidaDao {
           dao.create(bebida);
     }
 
-    public List<Bebida> listarTodos() throws SQLException {
+    public List<Bebida> listAll() throws SQLException {
         return dao.queryForAll();
     }
 
-    public List<Bebida> buscarPorNome(String nome) throws SQLException {
+    public List<Bebida> findByName(String nome) throws SQLException {
         return dao.queryBuilder()
                 .where()
                 .like("nome", "%" + nome + "%")
                 .query();
     }
 
-    public void atualizar(Bebida bebida) throws SQLException {
+    public void update(Bebida bebida) throws SQLException {
         dao.update(bebida);
     }
 
-    public void excluir(int id) throws SQLException {
+    public void delete(int id) throws SQLException {
         dao.deleteById(id);
     }
 }

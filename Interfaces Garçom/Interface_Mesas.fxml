@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="853.0" style="-fx-background-color: #171717; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: #292929; -fx-padding: 20; -fx-background-radius: 10;" BorderPane.alignment="CENTER_LEFT">
+         <padding>
+            <Insets top="12.0" />
+         </padding>
+         <children>
+            <VBox fx:id="vbIdentificacao" prefHeight="200.0" prefWidth="100.0" style="-fx-text-fill: #BDBDBD; -fx-font-size: 14px; -fx-font-weight: bold;" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label fx:id="nMesa" style="-fx-text-fill: #BDBDBD; -fx-font-size: 14px; -fx-font-weight: bold;" text="Mesa --" />
+                  <Label fx:id="localizacao" style="-fx-text-fill: #F2F2F2; -fx-font-size: 20px; -fx-font-weight: bold;" text="Localização da mesa" />
+               </children>
+            </VBox>
+            <VBox fx:id="vbResposavel" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="116.0" style="-fx-text-fill: #BDBDBD; -fx-font-size: 14px; -fx-font-weight: bold;" text="Garçom responsável" />
+                  <Label fx:id="nomeG" style="-fx-text-fill: #F2F2F2; -fx-font-size: 20px; -fx-font-weight: bold;" text="Nome do garçom" />
+               </children>
+            </VBox>
+            <VBox fx:id="vbEstado" prefHeight="50.0" prefWidth="40.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label style="-fx-text-fill: #BDBDBD; -fx-font-size: 14px; -fx-font-weight: bold;" text="Estado" />
+                  <Label fx:id="estadoMesa" style="-fx-text-fill: #F2F2F2; -fx-font-size: 20px; -fx-font-weight: bold;" text="--" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="16.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="8.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label style="-fx-text-fill: #F2F2F2; -fx-font-size: 16px; -fx-font-weight: bold;" text="Cozinha" />
+                  <TableView editable="true" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #292929; -fx-border-color: #454545; -fx-border-radius: 5; -fx-background-radius: 5; -fx-text-fill: #F2F2F2;">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="Produto" />
+                      <TableColumn prefWidth="75.0" text="Quantidade" />
+                        <TableColumn prefWidth="75.0" text="Subtotal" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <Label style="-fx-text-fill: #F2F2F2; -fx-font-size: 16px; -fx-font-weight: bold;" text="Bar" />
+                  <TableView editable="true" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #292929; -fx-border-color: #454545; -fx-border-radius: 5; -fx-background-radius: 5; -fx-text-fill: #F2F2F2;">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="Produto" />
+                      <TableColumn prefWidth="75.0" text="Quantidade" />
+                        <TableColumn prefWidth="75.0" text="Subtotal" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+            </VBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="200.0" spacing="16.0">
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #292929; -fx-background-radius: 8; -fx-padding: 12;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label style="-fx-text-fill: #BDBDBD; -fx-font-size: 14px; -fx-font-weight: bold;" text="Valor total" />
+                        <Label style="-fx-text-fill: #F2F2F2; -fx-font-size: 24px; -fx-font-weight: bold;" text="--" />
+                     </children>
+                  </VBox>
+                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 5; -fx-border-radius: 5; -fx-cursor: hand;" text="Adicionar pedido" />
+                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #9E2638; -fx-text-fill: #F2F2F2; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 5; -fx-border-radius: 5; -fx-cursor: hand;" text="Solicitar Pré-conta" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets top="12.0" />
+         </padding>
+      </VBox>
+   </center>
+</BorderPane>

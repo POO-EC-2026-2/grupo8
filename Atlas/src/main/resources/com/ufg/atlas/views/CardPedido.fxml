@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Gera os cards de cada pedido para ir para o display da cozinha -->
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="cardPedido" onMouseClicked="#clicarCard" prefWidth="280.0" spacing="8.0" styleClass="card-pedido" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ufg.atlas.controllers.CardPedidoController">
+   <children>
+      <Label fx:id="lblNumeroPedido" text="Pedido" />
+      <Label fx:id="lblMesa" text="Mesa" />
+      <VBox fx:id="listaItens" spacing="5.0" />
+      <Label fx:id="lblStatus" text="PEDIDO" />
+      <Label fx:id="lblTempo" text="Na cozinha: 00:00" />
+   </children>
+</VBox>
