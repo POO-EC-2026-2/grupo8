@@ -110,7 +110,7 @@ public class ComandaService {
 
         comandaDao.salvar(novaComanda);
         if (mesaDao != null) {
-            mesaDao.atualizar(mesa);
+            mesaDao.update(mesa);
         }
 
         return novaComanda;
@@ -158,7 +158,7 @@ public class ComandaService {
         comanda.fechar();
         Mesa mesa = comanda.obterMesa();
         if (mesa != null && mesaDao != null) {
-            mesaDao.atualizar(mesa);
+            mesaDao.update(mesa);
         }
     
         comandaDao.atualizar(comanda);
