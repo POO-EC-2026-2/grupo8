@@ -1,6 +1,6 @@
-<!-- Tem como objetivo organizar os cards de pedido gerado pelo CardPedido.fxml na tela da cozinha -->
-
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Tem como objetivo organizar os cards de pedido gerado pelo CardPedido.fxml na tela da cozinha -->
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
