@@ -8,6 +8,8 @@ import com.ufg.atlas.modelos.Produto;
 import com.ufg.atlas.services.CardapioService;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -33,6 +35,7 @@ public class CardapioController {
     private Funcionario funcionario;
     private CardapioService cardapioService;
     private List<Produto> itensEscolhidos = new ArrayList<>();
+    private int numeroMesa;
 
 
     public void definirFuncionario(Funcionario funcionario) {
@@ -54,6 +57,26 @@ public class CardapioController {
             for (Produto produto : bebidas) {
                 listaBebidas.getChildren().add(criarBotaoProduto(produto));
             }
+        } catch (Exception erro) {
+            mostrarErro(erro.getMessage());
+        }
+    }
+
+
+    public void definirMesa(int numero) {
+        this.numeroMesa = numero;
+    }
+
+
+    @FXML
+    private void voltarMesa() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ufg/atlas/views/Interface_Mesas.fxml"));
+            Parent tela = loader.load();
+            MesaController mesaController = loader.getController();
+            mesaController.definirFuncionario(funcionario);
+            mesaController.carregarMesa(numeroMesa);
+            listaComidas.getScene().setRoot(tela);
         } catch (Exception erro) {
             mostrarErro(erro.getMessage());
         }

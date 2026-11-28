@@ -78,7 +78,7 @@
                         <Label text="--" />
                      </children>
                   </VBox>
-                  <Button mnemonicParsing="false" text="Adicionar pedido" />
+                  <Button mnemonicParsing="false" onAction="#abrirCardapio" text="Adicionar pedido" />
                   <Button mnemonicParsing="false" text="Solicitar Pré-conta" />
                </children>
             </HBox>

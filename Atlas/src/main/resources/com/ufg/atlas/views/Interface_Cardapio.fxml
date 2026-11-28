@@ -22,7 +22,7 @@
                   <Label text="Mesa + localização" />
                </children>
             </VBox>
-            <Button mnemonicParsing="false" text="Voltar à mesa" />
+            <Button mnemonicParsing="false" onAction="#voltarMesa" text="Voltar à mesa" />
          </children>
       </HBox>
    </top>

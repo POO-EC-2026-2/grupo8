@@ -10,6 +10,8 @@ import com.ufg.atlas.services.ComandaService;
 import com.ufg.atlas.services.MesaService;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 
@@ -27,6 +29,7 @@ public class MesaController {
     private Funcionario funcionario;
     private MesaService mesaService;
     private ComandaService comandaService;
+    private int numeroMesa;
 
 
     public void definirFuncionario(Funcionario funcionario) {
@@ -51,6 +54,7 @@ public class MesaController {
                 mostrarErro("Mesa " + numero + " não encontrada.");
                 return;
             }
+            numeroMesa = numero;
             nMesa.setText("Mesa " + numero);
             estadoMesa.setText(String.valueOf(mesa.obterStatus()));
 
@@ -60,6 +64,25 @@ public class MesaController {
             } else {
                 nomeG.setText("--");
             }
+        } catch (Exception erro) {
+            mostrarErro(erro.getMessage());
+        }
+    }
+
+
+    @FXML
+    private void abrirCardapio() {
+        if (numeroMesa == 0) {
+            mostrarErro("Nenhuma mesa foi carregada.");
+            return;
+        }
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ufg/atlas/views/Interface_Cardapio.fxml"));
+            Parent tela = loader.load();
+            CardapioController cardapioController = loader.getController();
+            cardapioController.definirFuncionario(funcionario);
+            cardapioController.definirMesa(numeroMesa);
+            nMesa.getScene().setRoot(tela);
         } catch (Exception erro) {
             mostrarErro(erro.getMessage());
         }
